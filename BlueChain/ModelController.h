@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BluetoothLib.h"
+
 @class DataViewController;
 
 @interface ModelController : NSObject <UIPageViewControllerDataSource>
+{
+    BluetoothLib *m_bt;
+}
 
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController;

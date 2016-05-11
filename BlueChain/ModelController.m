@@ -29,20 +29,21 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        // Create the data model.
+        // 建立資料模型.
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         _pageData = [[dateFormatter monthSymbols] copy];
+        m_bt = [[BluetoothLib alloc] init];
     }
     return self;
 }
 
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard {
-    // Return the data view controller for the given index.
+    // 依據索引回傳視圖控制器.
     if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
         return nil;
     }
 
-    // Create a new view controller and pass suitable data.
+    // 以適當的資料初始化新建視圖控制器.
     DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
     dataViewController.dataObject = self.pageData[index];
     return dataViewController;
